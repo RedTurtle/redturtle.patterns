@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<registry>
+  <!--records prefix="plone.resources/redturtle-patterns-slider"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry' remove="true">
+ </records>
+
+  <records prefix="plone.bundles/redturtle-patterns"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry' remove="true">
+
+  </records-->
+  <records prefix="plone.resources/redturtle-patterns-slider"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++redturtle-patterns/slider/pattern.js</value>
+      <value key="css">
+        <element>++plone++redturtle-patterns/slider/pattern.slider.less</element>
+      </value>
+  </records>
+
+  <records prefix="plone.resources/bundle-redturtle-patterns"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++redturtle-patterns/bundle.js</value>
+    <value key="css">
+      <element>++plone++redturtle-patterns/pattern.less</element>
+    </value>
+  </records>
+
+  <records prefix="plone.bundles/redturtle-patterns"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources">
+      <element>bundle-redturtle-patterns</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="jscompilation">++plone++redturtle-patterns/redturtle-patterns-compiled.min.js</value>
+    <value key="csscompilation">++plone++redturtle-patterns/redturtle-patterns-compiled.css</value>
+    <value key="last_compilation">2015-02-16 00:00:00</value>
+    <value key="depends">plone</value>
+    <value key="stub_js_modules">
+     <element>jquery</element>
+     <element>pat-base</element>
+   </value>
+  </records>
+
+</registry>
