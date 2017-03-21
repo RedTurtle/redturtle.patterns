@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <registry>
-  <!--records prefix="plone.resources/redturtle-patterns-slider"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry' remove="true">
- </records>
-
-  <records prefix="plone.bundles/redturtle-patterns"
-            interface='Products.CMFPlone.interfaces.IBundleRegistry' remove="true">
-
-  </records-->
+  <!-- PATTERNS -->
   <records prefix="plone.resources/redturtle-patterns-slider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++redturtle-patterns/slider/pattern.js</value>
@@ -15,7 +8,22 @@
         <element>++plone++redturtle-patterns/slider/pattern.slider.less</element>
       </value>
   </records>
+  <records prefix="plone.resources/redturtle-patterns-timeline"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++redturtle-patterns/timeline/pattern.js</value>
+      <value key="css">
+        <element>++plone++redturtle-patterns/timeline/pattern.timeline.less</element>
+      </value>
+  </records>
 
+
+  <!-- EXTERNAL LIBRARIES -->
+  <records prefix="plone.resources/slick.min"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+            <value key="js">++resource++redturtle-patterns-libraries/slick/slick.min.js</value>
+  </records>
+
+  <!-- BUNDLE REGISTRATION AS RESOURCE -->
   <records prefix="plone.resources/bundle-redturtle-patterns"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="js">++plone++redturtle-patterns/bundle.js</value>
@@ -24,6 +32,7 @@
     </value>
   </records>
 
+  <!-- BUNDLE -->
   <records prefix="plone.bundles/redturtle-patterns"
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="resources">
@@ -37,6 +46,9 @@
     <value key="stub_js_modules">
      <element>jquery</element>
      <element>pat-base</element>
+     <element>mockup-utils</element>
+     <element>pat-logger</element>
+     <element>slick-min</element>
    </value>
   </records>
 

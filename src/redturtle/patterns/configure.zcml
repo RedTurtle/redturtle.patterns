@@ -31,6 +31,7 @@
       name="redturtle.patterns-hiddenprofiles" />
 
   <include package="plone.resource" file="meta.zcml"/>
+
   <plone:static
       directory="static"
       type="plone"

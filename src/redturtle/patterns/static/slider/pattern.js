@@ -1,7 +1,8 @@
 define('redturtle-patterns-slider', [
   'jquery',
   'pat-base',
-  '++resource++redturtle-patterns-libraries/slick/slick.min'
+  'slick.min'
+//  '++resource++redturtle-patterns-libraries/slick/slick.min'
 ], function($, Base) {
   'use strict';
 

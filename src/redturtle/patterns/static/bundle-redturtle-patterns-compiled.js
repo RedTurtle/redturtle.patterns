@@ -34,7 +34,7 @@
 (function(factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
+        define('slick.min',['jquery'], factory);
     } else if (typeof exports !== 'undefined') {
         module.exports = factory(require('jquery'));
     } else {
@@ -2950,3 +2950,94 @@
     };
 
 }));
+
+define('redturtle-patterns-slider', [
+  'jquery',
+  'pat-base',
+  'slick.min'
+//  '++resource++redturtle-patterns-libraries/slick/slick.min'
+], function($, Base) {
+  'use strict';
+
+  var Slider = Base.extend({
+    name: 'slider',
+    trigger: '.pat-slider',
+    parser: 'mockup',
+    defaults: {
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+    },
+    init: function() {
+        var that = this;
+        that.$el.slick(that.defaults);
+    }
+  });
+
+  return Slider;
+});
+
+define('redturtle-patterns-timeline', [
+  'jquery',
+  'pat-base',
+  'pat-logger',
+  'mockup-utils',
+], function($, Base, logger, utils) {
+  'use strict';
+
+  var log = logger.getLogger('pat-timeline');
+
+  var Timeline = Base.extend({
+    name: 'timeline',
+    trigger: '.pat-timeline',
+    parser: 'mockup',
+    defaults: {
+    },
+    init: function() {
+        debugger;
+        var that = this,
+            timeline = that.$el,
+            next = timeline.find('li.next a');
+        if (next.length > 0){
+            var url = next.attr('href');
+            this._loadElements(that, url);
+        }
+        else{
+            debugger; 
+        }
+    },
+    _loadElements: function(that, url) {
+        var loader = $("<div class='timeline-loader'><i class='fa fa-ellipsis-h' aria-hidden='true'></i><a href='" + url + "' class='load-timeline'>Carica aggiornamenti successivi</a></div>");
+        loader.find('a').on('click', that._load);
+        loader.insertBefore(that.$el.find('nav'));
+        return   
+    },
+    _load: function() {
+        debugger;
+        var that = this,
+            url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            dataType: 'html',
+            success: function(data){
+                debugger;
+            },
+            error: function(){
+                debugger;
+            }
+        });
+    }
+  });
+  return Timeline;
+});
+
+require([
+    'redturtle-patterns-slider',
+    'redturtle-patterns-timeline'
+], function() {
+    'use strict';
+});
+
+define("/opt/comunemodena.comnet/components/plone/src/redturtle.patterns/src/redturtle/patterns/static/bundle.js", function(){});
+

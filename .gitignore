@@ -33,3 +33,5 @@ report.html
 !.gitkeep
 !.travis.yml
 !src/redturtle
+node_modules
+package.json
