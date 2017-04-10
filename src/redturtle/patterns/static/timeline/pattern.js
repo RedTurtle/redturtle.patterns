@@ -24,35 +24,51 @@ define('redturtle-patterns-timeline', [
         var that = this,
             timeline = that.$el,
             next = timeline.find('li.next a');
+        this._setDate(that);
         if (next.length > 0){
             var url = next.attr('href');
             this._loadElements(that, url);
             $('.timeline nav').hide();
         }
     },
+    _setDate: function(that) {
+        //
+        var tags = $('.timeline .monthyear');
+        $(tags[0]).attr('hidden', false);
+        var lasttag = $(tags[0]).text();
+        if (tags.length > 1){
+            for (var i = 1; i < tags.length; i++){
+                if ($(tags[i]).text() !== lasttag){
+                    $(tags[i]).attr('hidden', false);
+                    lasttag = $(tags[i]).text();
+                }
+            } 
+        }
+    },
     _loadElements: function(that, url) {
         var loader = $("<div class='timeline-loader'><i class='fa fa-ellipsis-h' aria-hidden='true'></i><a href='" + url + "' class='load-timeline'>Carica aggiornamenti successivi</a></div>");
-        loader.find('a').on('click', that._load);
+        loader.find('a').on('click', {context: that}, that._load);
         loader.insertBefore(that.$el.find('nav'));
-        return   
     },
     _load: function(ev) {
         ev.preventDefault();
-        $('')
-        var that = this,
+        var that = ev.data.context,
             url = $(this).attr('href');
         $.ajax({
             url: url,
             dataType: 'html',
+            context: that,
             success: function(data){
-                var html = $.mockup.utils.parseBodyTag(data);
-                var newpage = $(_.find($(html), function(obj) {
-                        return $(obj).attr('id') === 'column-wrapper'
-                        })
-                    )
-                    .find('#content-core .timeline');
-                var pagination = newpage.find('nav').remove();
-                var url = pagination.find('li.next a').attr('href');
+                var html, newpage, pagination, url, selector;
+                html = $.mockup.utils.parseBodyTag(data);
+                selector = this.$el.attr('data-timeline-selector');
+                newpage = $(_.find($(html), function(obj) {
+                    return $(obj).attr('id') === 'column-wrapper'
+                    })
+                )
+                .find(selector);
+                pagination = newpage.find('nav').remove();
+                url = pagination.find('li.next a').attr('href');
                 newpage.find('>*').insertBefore($('.timeline-loader'));
                 if (url === undefined){
                     $('.timeline .timeline-loader').remove();
@@ -60,6 +76,7 @@ define('redturtle-patterns-timeline', [
                 else{
                     $('.timeline .load-timeline').attr('href', url)
                 }
+                this._setDate(this);
             },
             error: function(){
                 $('.timeline .timeline-loader').remove();
@@ -69,4 +86,5 @@ define('redturtle-patterns-timeline', [
         });
     }
   });
-  return Timeline;;
+  return Timeline;
+});
