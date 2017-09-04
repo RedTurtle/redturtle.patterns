@@ -8,7 +8,7 @@ define('redturtle-patterns-timeline', [
   'use strict';
 
   var log = logger.getLogger('pat-timeline');
-  /** 
+  /**
   Stupid but works
   *
   */
@@ -42,11 +42,11 @@ define('redturtle-patterns-timeline', [
                     $(tags[i]).attr('hidden', false);
                     lasttag = $(tags[i]).text();
                 }
-            } 
+            }
         }
     },
     _loadElements: function(that, url) {
-        var loader = $("<div class='timeline-loader'><i class='fa fa-ellipsis-h' aria-hidden='true'></i><a href='" + url + "' class='load-timeline'>Carica aggiornamenti successivi</a></div>");
+        var loader = $("<div class='timeline-loader'><i class='fa fa-ellipsis-h' aria-hidden='true'></i><a href='" + url + "' class='load-timeline'>Carica altri elementi</a></div>");
         loader.find('a').on('click', {context: that}, that._load);
         loader.insertBefore(that.$el.find('nav'));
     },
