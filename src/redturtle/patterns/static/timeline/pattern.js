@@ -46,7 +46,7 @@ define('redturtle-patterns-timeline', [
         }
     },
     _loadElements: function(that, url) {
-        var loader = $("<div class='timeline-loader'><i class='fa fa-ellipsis-h' aria-hidden='true'></i><a href='" + url + "' class='load-timeline'>Carica altri elementi</a></div>");
+        var loader = $("<div class='timeline-loader'><a href='" + url + "' class='load-timeline'>Carica altri elementi</a></div>");
         loader.find('a').on('click', {context: that}, that._load);
         loader.insertBefore(that.$el.find('nav'));
     },
