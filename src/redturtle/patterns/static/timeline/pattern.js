@@ -69,7 +69,7 @@ define('redturtle-patterns-timeline', [
                 .find(selector);
                 pagination = newpage.find('nav').remove();
                 url = pagination.find('li.next a').attr('href');
-                newpage.find('>*').insertBefore($('.timeline-loader'));
+                newpage.find('div.timeline-item.timeline-item-base').insertBefore($('.timeline-loader'));
                 if (url === undefined){
                     $('.timeline .timeline-loader').remove();
                 }
