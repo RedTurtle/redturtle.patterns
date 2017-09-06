@@ -39,8 +39,8 @@
       <element>bundle-redturtle-patterns</element>
     </value>
     <value key="enabled">True</value>
-    <value key="jscompilation">++plone++redturtle-patterns/redturtle-patterns-compiled.min.js</value>
-    <value key="csscompilation">++plone++redturtle-patterns/redturtle-patterns-compiled.css</value>
+    <value key="jscompilation">++plone++redturtle-patterns/build/redturtle-patterns-bundle-compiled.js</value>
+    <value key="csscompilation">++plone++redturtle-patterns/build/redturtle-patterns-bundle-compiled.min.css</value>
     <value key="last_compilation">2015-02-16 00:00:00</value>
     <value key="depends">plone</value>
     <value key="stub_js_modules">
