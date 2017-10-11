@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-1.0a2 (unreleased)
-------------------
+1.0 (11/10/2017)
+----------------
 
-- Nothing changed yet.
+- Production release
+  [lucabel]
 
 
 1.0a1 (2017-03-31)
