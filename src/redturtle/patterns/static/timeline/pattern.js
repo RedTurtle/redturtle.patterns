@@ -35,12 +35,12 @@ define('redturtle-patterns-timeline', [
         //
         var tags = $('.timeline .monthyear');
         $(tags[0]).attr('hidden', false);
-        var lasttag = $(tags[0]).text();
+        var lasttag = $(tags[0]).find('span').text();
         if (tags.length > 1){
             for (var i = 1; i < tags.length; i++){
-                if ($(tags[i]).text() !== lasttag){
+                if ($(tags[i]).find('span').text() !== lasttag){
                     $(tags[i]).attr('hidden', false);
-                    lasttag = $(tags[i]).text();
+                    lasttag = $(tags[i]).find('span').text();
                 }
             }
         }
@@ -69,7 +69,7 @@ define('redturtle-patterns-timeline', [
                 .find(selector);
                 pagination = newpage.find('nav').remove();
                 url = pagination.find('li.next a').attr('href');
-                newpage.find('div.timeline-item').insertBefore($('.timeline-loader'));
+                newpage.find('p.monthyear,div.timeline-item').insertBefore($('.timeline-loader'));
                 if (url === undefined){
                     $('.timeline .timeline-loader').remove();
                 }
