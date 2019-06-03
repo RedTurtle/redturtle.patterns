@@ -38,7 +38,7 @@
     <value key="resources">
       <element>bundle-redturtle-patterns</element>
     </value>
-    <value key="enabled">True</value>
+    <value key="enabled">False</value>
     <value key="jscompilation">++plone++redturtle-patterns/build/redturtle-patterns-bundle-compiled.js</value>
     <value key="csscompilation">++plone++redturtle-patterns/build/redturtle-patterns-bundle-compiled.min.css</value>
     <value key="last_compilation">2015-02-16 00:00:00</value>

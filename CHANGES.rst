@@ -2,6 +2,10 @@ Changelog
 =========
 
 
+1.1unabledpatterns (03/06/2019)
+-------------------------------
+- release this version in pypi local just to have this resource without enabled pattern in registry
+
 1.1 (11/10/2017)
 ----------------
 
