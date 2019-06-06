@@ -88,9 +88,3 @@ define('redturtle-patterns-timeline', [
   });
   return Timeline;
 });
-require([
-    'redturtle-patterns-timeline'
-], function() {
-    'use strict';
-});
-
