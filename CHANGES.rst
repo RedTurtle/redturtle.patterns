@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0.0 (unreleased)
+----------------
+
+- major refactoring for python 3.8 and plone 5.2
+  [reflab]
 
 1.1 (11/10/2017)
 ----------------
